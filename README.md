@@ -12,10 +12,10 @@ A Java and Spring Boot educational application that inspects URL text for common
 - Unit tests with JUnit 5
 
 ## Technology
-Java 17, Maven, Spring Boot 3, Spring MVC, Thymeleaf, Spring Data JPA, H2, JUnit 5.
+Java 21, Maven, Spring Boot 3, Spring MVC, Thymeleaf, Spring Data JPA, H2, JUnit 5.
 
 ## Run locally
-1. Install JDK 17+ and Maven (or use Eclipse's embedded Maven).
+1. Install JDK 21 and Maven (or use Eclipse's embedded Maven).
 2. Import this directory into Eclipse: **File → Import → Maven → Existing Maven Projects**.
 3. Select the project folder and finish import.
 4. Run `PhishingDetectorApplication.java` as **Java Application**, or execute:
