@@ -43,3 +43,8 @@ Build with `mvn clean package` and deploy the generated JAR to a Java 17-compati
 
 ## Important limitations
 This is a rule-based educational detector, not a machine-learning model, threat-intelligence service, browser protection product, or definitive safety check. URL features can produce false positives and false negatives. HTTPS does not establish trustworthiness. The app analyzes URL text and does not fetch or open submitted URLs. Do not use its output as the sole basis for security decisions.
+<img width="938" height="439" alt="image" src="https://github.com/user-attachments/assets/ae6419bf-20bf-400f-9b70-3fd141152d80" />
+<img width="902" height="344" alt="image" src="https://github.com/user-attachments/assets/d24b9d97-eee2-42af-a7c9-2c7e760c3c7f" />
+<img width="929" height="289" alt="image" src="https://github.com/user-attachments/assets/c9dc61a8-81fd-4d63-aa7e-58138dda1ae8" />
+
+
