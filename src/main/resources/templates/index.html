@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhishGuard | URL Analyzer</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark"><div class="container"><a class="navbar-brand fw-bold" href="/">🛡 PhishGuard</a><span class="navbar-text">URL risk analyzer</span></div></nav>
+<main class="container py-5">
+<section class="hero text-center mx-auto">
+<div class="eyebrow">CYBERSECURITY • URL ANALYSIS</div>
+<h1>Check a link before<br><span>you trust it.</span></h1>
+<p class="lead">Analyze URL characteristics and identify common phishing indicators.</p>
+<form class="scan-form d-flex gap-2 mt-4" method="post" action="/scan">
+<input class="form-control form-control-lg" type="text" name="url" placeholder="Paste a URL (e.g. https://example.com)" required maxlength="2048" th:value="${param.url}">
+<button class="btn btn-primary btn-lg" type="submit">Analyze URL</button>
+</form>
+<div class="small text-secondary mt-2">This tool analyzes URL text only. It does not open or visit the submitted website.</div>
+</section>
+<div th:if="${error}" class="alert alert-danger mt-4" th:text="${error}"></div>
+<section th:if="${result}" class="result-card mt-4">
+<div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+<div><div class="eyebrow">ANALYSIS RESULT</div><h2 th:text="${result.classification}">Caution</h2><p class="text-secondary mb-0" th:text="${result.normalizedUrl}"></p></div>
+<div class="score"><strong th:text="${result.riskScore}">0</strong><span>/100 risk score</span></div>
+</div>
+<div class="progress my-3" role="progressbar"><div class="progress-bar" th:style="'width:' + ${result.riskScore} + '%'"></div></div>
+<p th:text="${result.explanation}"></p>
+<h6 class="mt-4">Detected indicators</h6>
+<ul th:if="${!result.features.findings.isEmpty()}"><li th:each="finding : ${result.features.findings}" th:text="${finding}"></li></ul>
+<p th:if="${result.features.findings.isEmpty()}" class="text-secondary">No configured indicators detected.</p>
+<div class="feature-grid">
+<div><small>URL length</small><b th:text="${result.features.length}"></b></div>
+<div><small>HTTPS</small><b th:text="${result.features.https ? 'Yes' : 'No'}"></b></div>
+<div><small>IP host</small><b th:text="${result.features.ipHost ? 'Yes' : 'No'}"></b></div>
+<div><small>Subdomain count</small><b th:text="${result.features.subdomainCount}"></b></div>
+</div>
+</section>
+<section class="mt-5">
+<div class="d-flex align-items-center justify-content-between mb-3"><h3 class="h5 mb-0">Recent scans</h3><span class="text-secondary small">Latest 50</span></div>
+<div class="table-responsive history-card">
+<table class="table align-middle mb-0"><thead><tr><th>URL</th><th>Risk</th><th>Classification</th><th>Scanned at</th></tr></thead>
+<tbody><tr th:each="item : ${history}"><td class="url-cell" th:text="${item.url}"></td><td th:text="${item.riskScore} + '/100'"></td><td th:text="${item.classification}"></td><td th:text="${#temporals.format(item.scannedAt, 'yyyy-MM-dd HH:mm')}"></td></tr>
+<tr th:if="${#lists.isEmpty(history)}"><td colspan="4" class="text-center text-secondary py-4">No scans yet. Analyze a URL to get started.</td></tr></tbody></table>
+</div>
+</section>
+<div class="alert alert-warning mt-4"><strong>Important:</strong> This is a rule-based educational tool, not a definitive security verdict. A low score does not mean a site is safe. Do not enter sensitive information based only on this result.</div>
+</main>
+<footer class="container py-4 text-center text-secondary small">PhishGuard • Educational cybersecurity project</footer>
+</body></html>

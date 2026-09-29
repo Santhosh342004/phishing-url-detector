@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+:root{--ink:#17243b;--muted:#64748b;--line:#e5eaf2;--blue:#2563eb}
+*{box-sizing:border-box}body{font-family:'DM Sans',sans-serif;background:#f5f7fb;color:var(--ink);min-height:100vh}
+.navbar{background:#101c34;padding:16px 0}.navbar-brand{font-family:Manrope,sans-serif;letter-spacing:-.3px}
+.hero{max-width:850px;padding:26px 0 12px}.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;color:var(--blue);margin-bottom:12px}
+h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.06}h1 span{color:var(--blue)}
+.lead{color:var(--muted);max-width:620px;margin:18px auto}.scan-form{background:#fff;padding:8px;border:1px solid var(--line);border-radius:15px;box-shadow:0 12px 32px #17243b0d}
+.scan-form .form-control{border:0;box-shadow:none}.btn-primary{background:var(--blue);border-color:var(--blue);border-radius:10px;padding-inline:24px}
+.result-card,.history-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 8px 28px #17243b08}
+.score{background:#eef4ff;border-radius:14px;padding:12px 18px;text-align:center;color:var(--blue);display:flex;flex-direction:column}.score strong{font:800 2rem Manrope}.score span{font-size:.75rem}
+.progress{height:8px;background:#e8edf5}.progress-bar{background:var(--blue)}.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.feature-grid div{background:#f6f8fc;border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:4px}.feature-grid small{color:var(--muted)}.feature-grid b{font-size:1.05rem}
+.history-card{padding:0;overflow:hidden}.table{font-size:.9rem}.table thead th{background:#f8faff;color:#64748b;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--line);white-space:nowrap}.url-cell{max-width:340px;overflow-wrap:anywhere}
+@media(max-width:650px){.scan-form{flex-direction:column!important}.feature-grid{grid-template-columns:repeat(2,1fr)}.result-card{padding:18px}}
